@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+    </div>
+    <button>改变</button>
+    <a href="#">获取数据</a>
+    <p id="pinner"></p>
+</body>
+<script>
+    const obj = {
+        msg: "hello world!"
+    }
+    const app = new Vue({
+        el: "#app",
+        data: obj
+    })
+    document.getElementsByTagName("button")[0].onclick = () => {
+        obj.msg = "按钮点击事件..."
+    }
+    console.log(document.getElementsByTagName("a")[0])
+    document.getElementsByTagName("a")[0].onclick = (evt) => {
+        evt.preventDefault();
+        document.getElementById("pinner").innerHTML = app.msg;
+    }
+</script>
+
+</html>

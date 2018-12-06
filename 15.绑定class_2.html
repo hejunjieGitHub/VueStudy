@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            background: pink;
+        }
+        .box-modify {
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            background: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p :class="{'box':isBoxModify}">我是一个盒子</p>
+        <div :class="classname">我是一个盒子</div>
+        <button @click="isBoxModify=true">切换</button>
+    </div>
+</body>
+<script>
+    const app = new Vue({
+        el:"#app",
+        data:{
+            isBoxModify:false,
+            /* 这种写法是错误的，因为获取不到this.isBoxModify,需要使用计算属性
+            classname:{
+                "box-modify":this.isBoxModify
+            }*/
+        },
+        computed:{
+            classname(){
+                return {
+                    "box-modify":this.isBoxModify
+                }
+            }
+        }
+    })
+</script>
+</html>

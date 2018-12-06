@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.17/vue.js"></script>
+</head>
+
+<body>
+    <div class="app">{{msg}}</div>
+</body>
+<script>
+    const app = new Vue({
+        el: document.getElementsByClassName("app")[0], // .app
+        data: {
+            msg: "hello world"
+        }
+    })
+    console.log(app.$el)
+    console.log(app.msg) //hello world
+</script>
+
+</html>

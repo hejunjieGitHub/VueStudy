@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p v-bind:name="name">显示name</p>
+    </div>
+    <button>获取属性</button>
+</body>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            name: "贺俊杰"
+        }
+    })
+    document.getElementsByTagName("button")[0].onclick = () => {
+        console.log(app.$el.children[0].getAttribute("name")); //贺俊杰
+    }
+</script>
+
+</html>
